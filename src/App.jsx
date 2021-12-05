@@ -9,7 +9,7 @@ import Header from "./components/Header";
 function App() {
   const sideNavState = useState(false);
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Header sideNavState={sideNavState} />
       <main>
         <SideNav sideNavState={sideNavState} />
