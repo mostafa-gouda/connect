@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SendIcon from "@mui/icons-material/Send";
 import { Link } from "react-router-dom";
+import posts from "./posts";
 
 const Container = styled.div`
   width: 90%;
@@ -18,13 +19,6 @@ export default function PostsList() {
     return data.results;
   };
 
-  const fetchPosts = async () => {
-    const response = await fetch("http://metaphorpsum.com/paragraphs/15/6");
-    let data = await response.text();
-    data = data.split("\n\n");
-    return data;
-  };
-
   const combinePostsAndUsers = (users, posts) => {
     let combinedUsers = users.map((user, i) => {
       const combined = { ...user, postData: posts[i] };
@@ -36,7 +30,6 @@ export default function PostsList() {
   useEffect(() => {
     const getPostUsers = async () => {
       let newUsers = await fetchPostUsers();
-      const posts = await fetchPosts();
       newUsers = combinePostsAndUsers(newUsers, posts);
       setPostUsers(newUsers);
     };
