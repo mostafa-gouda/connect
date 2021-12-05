@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 90%;
-  max-width: 650px;
+  max-width: 800px;
   margin: 0 auto;
   padding-top: 1rem;
   background-color: white;
@@ -36,10 +36,13 @@ const ProfileDetails = styled.div`
   .info-type {
     display: inline-block;
     width: 50%;
-    @media (max-width: 700px) {
+    color: rgb(84, 175, 179);
+  }
+  @media (max-width: 700px) {
+    width: 90%;
+    .info-type {
       width: 30%;
     }
-    color: rgb(84, 175, 179);
   }
 `;
 
