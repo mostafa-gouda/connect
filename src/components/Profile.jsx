@@ -3,7 +3,8 @@ import { useLocation } from "react-router";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 55%;
+  width: 90%;
+  max-width: 650px;
   margin: 0 auto;
   padding-top: 1rem;
   background-color: white;
@@ -28,16 +29,18 @@ const ProfilePicture = styled.img`
 `;
 
 const ProfileDetails = styled.div`
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-`;
-
-const InfoTitle = styled.span`
-  display: inline-block;
-  width: 50%;
-  color: rgb(84, 175, 179);
+  .info-type {
+    display: inline-block;
+    width: 50%;
+    @media (max-width: 700px) {
+      width: 30%;
+    }
+    color: rgb(84, 175, 179);
+  }
 `;
 
 const InfoItem = styled.li`
@@ -67,30 +70,30 @@ function Profile() {
         <h2>Contact Information</h2>
         <ul>
           <InfoItem>
-            <InfoTitle>Email</InfoTitle>
+            <span className="info-type">Email</span>
             <span>{user.email}</span>
           </InfoItem>
           <InfoItem>
-            <InfoTitle>Phone</InfoTitle>
+            <span className="info-type">Phone</span>
             <span>{user.cell}</span>
           </InfoItem>
           <InfoItem>
-            <InfoTitle>Address</InfoTitle>
+            <span className="info-type">Address</span>
             <span>{`${user.location.country}, ${user.location.city}`}</span>
           </InfoItem>
         </ul>
         <h2>Basic Information</h2>
         <ul>
           <InfoItem>
-            <InfoTitle>Birthday</InfoTitle>
+            <span className="info-type">Birthday</span>
             <span>{birthDay}</span>
           </InfoItem>
           <InfoItem>
-            <InfoTitle>Birth Year</InfoTitle>
+            <span className="info-type">Birth Year</span>
             <span>{birthYear}</span>
           </InfoItem>
           <InfoItem>
-            <InfoTitle>Gender</InfoTitle>
+            <span className="info-type">Gender</span>
             <span>{user.gender}</span>
           </InfoItem>
         </ul>
